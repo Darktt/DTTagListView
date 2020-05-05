@@ -12,6 +12,8 @@ class ViewController: UIViewController
 {
     @IBOutlet fileprivate var inputAccessoryBar: UIToolbar!
     @IBOutlet fileprivate weak var textField: UITextField!
+    @IBOutlet fileprivate weak var columnMarginLabel: UILabel!
+    @IBOutlet fileprivate weak var rowMarginLabel: UILabel!
     @IBOutlet fileprivate weak var tagListView: DTTagListView!
     
     override var inputAccessoryView: UIView? {
@@ -46,6 +48,18 @@ extension ViewController
         tagView.backgroundColor = .green
         
         self.tagListView.addTagView(tagView)
+    }
+    
+    @IBAction func columnMarginUpdateAction(_ sender: UIStepper)
+    {
+        self.columnMarginLabel.text = "\(Int(sender.value))"
+        self.tagListView.columnMargin = CGFloat(sender.value)
+    }
+    
+    @IBAction func rowMarginUpdateAction(_ sender: UIStepper)
+    {
+        self.rowMarginLabel.text = "\(Int(sender.value))"
+        self.tagListView.rowMargin = CGFloat(sender.value)
     }
     
     @IBAction func editingDoneAction(_ sender: UIBarButtonItem)

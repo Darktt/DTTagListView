@@ -16,7 +16,7 @@ class DemoTagView: DTTagView
         
         var contentRect: CGRect = self.tagLabel.bounds
         contentRect.size.width += 16.0
-        contentRect.size.height = 20.0
+        contentRect.size.height += 4.0
         
         return contentRect
     }

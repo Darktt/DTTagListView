@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TagListDemo.xcodeproj">
+      location = "self:/Users/eden/Desktop/DTTagListView/DTTagListDemo.xcodeproj">
    </FileRef>
 </Workspace>

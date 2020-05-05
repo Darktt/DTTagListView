@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F215111024613DEF00DA8942 /* TagListDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagListDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F215111024613DEF00DA8942 /* DTTagListDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTTagListDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F215111324613DEF00DA8942 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F215111524613DEF00DA8942 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F215111724613DEF00DA8942 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		F215110724613DEF00DA8942 = {
 			isa = PBXGroup;
 			children = (
-				F215111224613DEF00DA8942 /* TagListDemo */,
+				F215111224613DEF00DA8942 /* DTTagListDemo */,
 				F215111124613DEF00DA8942 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +54,12 @@
 		F215111124613DEF00DA8942 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F215111024613DEF00DA8942 /* TagListDemo.app */,
+				F215111024613DEF00DA8942 /* DTTagListDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F215111224613DEF00DA8942 /* TagListDemo */ = {
+		F215111224613DEF00DA8942 /* DTTagListDemo */ = {
 			isa = PBXGroup;
 			children = (
 				F215112724613E1B00DA8942 /* TagListView */,
@@ -72,7 +72,7 @@
 				F215111E24613DF100DA8942 /* LaunchScreen.storyboard */,
 				F215112124613DF100DA8942 /* Info.plist */,
 			);
-			path = TagListDemo;
+			path = DTTagListDemo;
 			sourceTree = "<group>";
 		};
 		F215112724613E1B00DA8942 /* TagListView */ = {
@@ -87,9 +87,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F215110F24613DEF00DA8942 /* TagListDemo */ = {
+		F215110F24613DEF00DA8942 /* DTTagListDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F215112424613DF100DA8942 /* Build configuration list for PBXNativeTarget "TagListDemo" */;
+			buildConfigurationList = F215112424613DF100DA8942 /* Build configuration list for PBXNativeTarget "DTTagListDemo" */;
 			buildPhases = (
 				F215110C24613DEF00DA8942 /* Sources */,
 				F215110D24613DEF00DA8942 /* Frameworks */,
@@ -99,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = TagListDemo;
+			name = DTTagListDemo;
 			productName = TagListDemo;
-			productReference = F215111024613DEF00DA8942 /* TagListDemo.app */;
+			productReference = F215111024613DEF00DA8942 /* DTTagListDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -119,7 +119,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F215110B24613DEF00DA8942 /* Build configuration list for PBXProject "TagListDemo" */;
+			buildConfigurationList = F215110B24613DEF00DA8942 /* Build configuration list for PBXProject "DTTagListDemo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -132,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F215110F24613DEF00DA8942 /* TagListDemo */,
+				F215110F24613DEF00DA8942 /* DTTagListDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -305,7 +305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = TagListDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DTTagListDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,7 +322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = TagListDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DTTagListDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -337,7 +337,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F215110B24613DEF00DA8942 /* Build configuration list for PBXProject "TagListDemo" */ = {
+		F215110B24613DEF00DA8942 /* Build configuration list for PBXProject "DTTagListDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F215112224613DF100DA8942 /* Debug */,
@@ -346,7 +346,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F215112424613DF100DA8942 /* Build configuration list for PBXNativeTarget "TagListDemo" */ = {
+		F215112424613DF100DA8942 /* Build configuration list for PBXNativeTarget "DTTagListDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F215112524613DF100DA8942 /* Debug */,

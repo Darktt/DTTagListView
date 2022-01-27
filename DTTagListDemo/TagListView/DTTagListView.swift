@@ -135,6 +135,7 @@ private extension DTTagListView
     func setupTagView(_ tagView: DTTagView)
     {
         let remainWidth: CGFloat = self.bounds.width - self.edgeInsets.left - self.nextPosition.x - self.edgeInsets.right
+        var nextPosition: CGPoint = self.nextPosition
         var tagFrame: CGRect = tagView.contentRect
         
         if remainWidth >= tagFrame.width {
@@ -143,7 +144,7 @@ private extension DTTagListView
             
             tagFrame.origin = self.nextPosition
             
-            self.nextPosition.x = tagFrame.maxX + self.columnMargin
+            nextPosition.x = tagFrame.maxX + self.columnMargin
             
             if self.previousTagViewHeight < tagFrame.height {
                 
@@ -155,15 +156,17 @@ private extension DTTagListView
             
             var origin = CGPoint.zero
             origin.x = self.edgeInsets.left
-            origin.y = self.nextPosition.y + self.previousTagViewHeight + self.rowMargin
+            origin.y = nextPosition.y + self.previousTagViewHeight + self.rowMargin
             
             tagFrame.origin = origin
             
-            self.nextPosition.x = tagFrame.maxX + self.rowMargin
-            self.nextPosition.y = origin.y
+            nextPosition.x = tagFrame.maxX + self.columnMargin
+            nextPosition.y = origin.y
             
             self.previousTagViewHeight = tagFrame.height
         }
+        
+        self.nextPosition = nextPosition
         
         tagView.frame = tagFrame
     }

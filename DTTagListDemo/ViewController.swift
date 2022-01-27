@@ -16,14 +16,20 @@ class ViewController: UIViewController
     @IBOutlet fileprivate weak var rowMarginLabel: UILabel!
     @IBOutlet fileprivate weak var tagListView: DTTagListView!
     
-    override var inputAccessoryView: UIView? {
+    private let tagColors: Array<UIColor> = [UIColor.red, UIColor.cyan, UIColor.green, UIColor.orange, UIColor.yellow, UIColor.brown]
+    
+    override var inputAccessoryView: UIView?
+    {
         
         return self.inputAccessoryBar
     }
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        self.textField.clearButtonMode = .unlessEditing
         
         let edgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         
@@ -31,8 +37,6 @@ class ViewController: UIViewController
         self.tagListView.columnMargin = 10.0
         self.tagListView.rowMargin = 5.0
     }
-    
-    
 }
 
 extension ViewController
@@ -45,7 +49,7 @@ extension ViewController
         }
         
         let tagView = DemoTagView(text: tagText)
-        tagView.backgroundColor = .green
+        tagView.backgroundColor = self.tagColors.randomElement()
         
         self.tagListView.addTagView(tagView)
     }

@@ -41,9 +41,10 @@ class ViewController: UIViewController
 
 extension ViewController
 {
-    @IBAction func addTagAction(_ sender: UIButton)
+    @IBAction
+    func addTagAction(_ sender: UIButton)
     {
-        guard let tagText: String = self.textField.text else {
+        guard let tagText: String = self.textField.text.and({ !$0.isEmpty }) else {
             
             return
         }
@@ -52,21 +53,43 @@ extension ViewController
         tagView.backgroundColor = self.tagColors.randomElement()
         
         self.tagListView.addTagView(tagView)
+        
+        self.textField.text = nil
     }
     
-    @IBAction func columnMarginUpdateAction(_ sender: UIStepper)
+    @IBAction
+    func columnMarginUpdateAction(_ sender: UIStepper)
     {
         self.columnMarginLabel.text = "\(Int(sender.value))"
         self.tagListView.columnMargin = CGFloat(sender.value)
     }
     
-    @IBAction func rowMarginUpdateAction(_ sender: UIStepper)
+    @IBAction
+    func rowMarginUpdateAction(_ sender: UIStepper)
     {
         self.rowMarginLabel.text = "\(Int(sender.value))"
         self.tagListView.rowMargin = CGFloat(sender.value)
     }
     
-    @IBAction func editingDoneAction(_ sender: UIBarButtonItem)
+    @IBAction
+    func changeAlignmentAction(_ sender: UISegmentedControl)
+    {
+        guard let alignment = DTTagListView.Alignment(rawValue: sender.selectedSegmentIndex) else {
+            
+            return
+        }
+        
+        self.tagListView.alignment = alignment
+    }
+    
+    @IBAction
+    func cleanUpAction(_ sender: UIButton)
+    {
+        self.tagListView.removeAllTagViews()
+    }
+    
+    @IBAction
+    func editingDoneAction(_ sender: UIBarButtonItem)
     {
         self.view.endEditing(true)
     }

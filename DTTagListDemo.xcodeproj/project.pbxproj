@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E0FEA7F27E2E60700242E62 /* OptionalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0FEA7E27E2E60700242E62 /* OptionalExtension.swift */; };
 		F215111424613DEF00DA8942 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215111324613DEF00DA8942 /* AppDelegate.swift */; };
 		F215111624613DEF00DA8942 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215111524613DEF00DA8942 /* SceneDelegate.swift */; };
 		F215111824613DEF00DA8942 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215111724613DEF00DA8942 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E0FEA7E27E2E60700242E62 /* OptionalExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalExtension.swift; sourceTree = "<group>"; };
 		F215111024613DEF00DA8942 /* DTTagListDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTTagListDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F215111324613DEF00DA8942 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F215111524613DEF00DA8942 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				F215112724613E1B00DA8942 /* TagListView */,
 				F215111324613DEF00DA8942 /* AppDelegate.swift */,
 				F215111524613DEF00DA8942 /* SceneDelegate.swift */,
+				6E0FEA7E27E2E60700242E62 /* OptionalExtension.swift */,
 				F215112C24614DCE00DA8942 /* DemoTagView.swift */,
 				F215111724613DEF00DA8942 /* ViewController.swift */,
 				F215111924613DEF00DA8942 /* Main.storyboard */,
@@ -111,7 +114,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = "Darktt Pensinal Compenly";
 				TargetAttributes = {
 					F215110F24613DEF00DA8942 = {
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0FEA7F27E2E60700242E62 /* OptionalExtension.swift in Sources */,
 				F215112B2461401500DA8942 /* DTTagListView.swift in Sources */,
 				F215112924613E4D00DA8942 /* DTTagView.swift in Sources */,
 				F215111824613DEF00DA8942 /* ViewController.swift in Sources */,
@@ -212,6 +216,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -236,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,6 +277,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -290,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -305,6 +311,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BBWXA3TC3S;
 				INFOPLIST_FILE = "$(SRCROOT)/DTTagListDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -322,6 +329,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BBWXA3TC3S;
 				INFOPLIST_FILE = "$(SRCROOT)/DTTagListDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

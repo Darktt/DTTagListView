@@ -41,6 +41,16 @@ public class DTTagListView: UIView
         }
     }
     
+    @IBInspectable
+    public var alignment: Alignment = .left {
+        
+        didSet {
+            
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+        }
+    }
+    
     public override var intrinsicContentSize: CGSize {
         
         var intrinsicContentSize: CGSize = self.bounds.size
@@ -50,7 +60,10 @@ public class DTTagListView: UIView
     }
     
     private var contentHeight: CGFloat = 0.0
-    private var tagViews: [DTTagView] = []
+    private var tagViews: Array<DTTagView> = []
+    
+    private weak var currentRowView: UIView? = nil
+    private var rowViews: Array<UIView> = []
     
     private var nextPosition: CGPoint = CGPoint.zero
     private var previousTagViewHeight: CGFloat = 0.0
@@ -77,16 +90,10 @@ public class DTTagListView: UIView
             return
         }
         
-        let x: CGFloat = self.edgeInsets.left
-        let y: CGFloat = self.edgeInsets.top
-        self.nextPosition = CGPoint(x: x, y: y)
+        self.nextPosition = CGPoint.zero
         self.previousTagViewHeight = 0.0
         
-        self.tagViews.forEach {
-            
-            self.setupTagView($0)
-            self.addSubview($0)
-        }
+        self.rearrangeViews()
         
         let contentHeight: CGFloat = self.nextPosition.y + self.previousTagViewHeight + self.edgeInsets.bottom
         
@@ -132,42 +139,98 @@ public class DTTagListView: UIView
 
 private extension DTTagListView
 {
-    func setupTagView(_ tagView: DTTagView)
+    func generatorRowView(y: CGFloat) -> UIView
     {
-        let remainWidth: CGFloat = self.bounds.width - self.edgeInsets.left - self.nextPosition.x - self.edgeInsets.right
-        var nextPosition: CGPoint = self.nextPosition
-        var tagFrame: CGRect = tagView.contentRect
+        var frame = CGRect.zero
+        frame.origin.x = self.edgeInsets.left
+        frame.origin.y = y
         
-        if remainWidth >= tagFrame.width {
+        let rowView = UIView(frame: frame);
+        
+        self.addSubview(rowView)
+        self.rowViews.append(rowView);
+        
+        return rowView
+    }
+    
+    func rearrangeViews()
+    {
+        let rowView: UIView = self.generatorRowView(y: self.edgeInsets.top)
+        
+        self.currentRowView = rowView
+        
+        let currentWidth = self.bounds.width - self.edgeInsets.left - self.edgeInsets.right
+        var currentRowWidth = CGFloat.zero
+        var nextPosition: CGPoint = self.nextPosition
+        
+        self.tagViews.forEach {
             
-            // ** Insert to remain space **
+            var contentRect: CGRect = $0.contentRect
             
-            tagFrame.origin = self.nextPosition
-            
-            nextPosition.x = tagFrame.maxX + self.columnMargin
-            
-            if self.previousTagViewHeight < tagFrame.height {
+            if (currentRowWidth + contentRect.width) > currentWidth {
                 
-                self.previousTagViewHeight = tagFrame.height
+                // ** Insert to new row **
+                currentRowWidth = 0.0
+                self.nextPosition.x = 0.0
+                
+                let rowViewY: CGFloat = self.edgeInsets.top + self.previousTagViewHeight + self.rowMargin
+                let rowView: UIView = self.generatorRowView(y: rowViewY)
+                
+                self.currentRowView = rowView
             }
-        } else {
             
-            // ** Insert to new row **
+            contentRect.origin = self.nextPosition
             
-            var origin = CGPoint.zero
-            origin.x = self.edgeInsets.left
-            origin.y = nextPosition.y + self.previousTagViewHeight + self.rowMargin
+            $0.frame = contentRect
             
-            tagFrame.origin = origin
+            nextPosition.x = $0.frame.maxX + self.columnMargin
+            currentRowWidth = nextPosition.x
             
-            nextPosition.x = tagFrame.maxX + self.columnMargin
-            nextPosition.y = origin.y
+            self.currentRowView?.frame.size.width = currentRowWidth
+            self.currentRowView?.frame.size.height = contentRect.height
+            self.currentRowView?.addSubview($0)
             
-            self.previousTagViewHeight = tagFrame.height
+            self.nextPosition = nextPosition
+            self.previousTagViewHeight = max(self.previousTagViewHeight, self.currentRowView?.frame.maxY ?? 0.0)
+            self.adjustRowView()
+        }
+    }
+    
+    func adjustRowView()
+    {
+        guard let currentRowView: UIView = self.currentRowView else {
+            
+            return
         }
         
-        self.nextPosition = nextPosition
+        let currentRowWidth: CGFloat = currentRowView.bounds.width
+        var rowViewX: CGFloat = self.edgeInsets.left
         
-        tagView.frame = tagFrame
+        if self.alignment == .center {
+            
+            rowViewX = (self.bounds.width - currentRowWidth + self.columnMargin) / 2.0
+        }
+        
+        if self.alignment == .right {
+            
+            rowViewX = (self.bounds.width - currentRowWidth - self.edgeInsets.right + self.columnMargin)
+        }
+        
+        currentRowView.frame.origin.x = rowViewX
+    }
+}
+
+// MARK: DTTagListView.Alignment
+
+public extension DTTagListView
+{
+    @objc(DTTagListViewAlignment)
+    enum Alignment: Int {
+        
+        case left
+        
+        case center
+        
+        case right
     }
 }

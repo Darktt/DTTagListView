@@ -106,6 +106,12 @@ public class DTTagListView: UIView
         self.tagViews.removeAll()
     }
     
+    @objc
+    public func addTagView(_ view: DTTagView)
+    {
+        self.addTagViews(view)
+    }
+    
     public func addTagView<TagView>(_ view: TagView) where TagView: DTTagView
     {
         self.tagViews.append(view)

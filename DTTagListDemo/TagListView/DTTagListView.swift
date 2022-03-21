@@ -83,6 +83,7 @@ public class DTTagListView: UIView
         super.layoutSubviews()
         
         self.subviews.forEach({ $0.removeFromSuperview() })
+        self.rowViews.removeAll()
         
         guard !self.tagViews.isEmpty else {
             
